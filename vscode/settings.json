@@ -1,0 +1,7 @@
+{
+    "files.insertFinalNewline": true,
+    "editor.renderWhitespace": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.wrappingColumn": 0,
+    "softwrap.customsetting": 1000
+}
