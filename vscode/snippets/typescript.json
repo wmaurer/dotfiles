@@ -2,30 +2,49 @@
 	"Print to console": {
 		"prefix": "slog",
 		"body": [
-			"console.log(`$1`);",
-			"$2"
+			"console.log(`$1`);$2"
 		],
 		"description": "Log output to console"
 	},
 	"Import statement": {
 		"prefix": "simp",
 		"body": [
-			"import { $2 } from '$1';",
-			"$3"
+			"import { $2 } from '$1';$3"
 		],
 		"description": "Import statement"
+	},
+	"Import default statement": {
+		"prefix": "simpd",
+		"body": [
+			"import $2 from '$1';$3"
+		],
+		"description": "Import default statement"
+	},
+	"JSON.stringify()": {
+		"prefix": "sfy",
+		"body": [
+			"JSON.stringify($1)"
+		],
+		"description": "JSON.stringify()"
+	},
+	"console.log('', JSON.stringify())": {
+		"prefix": "slogfy",
+		"body": [
+			"console.log('$1', JSON.stringify($2))"
+		],
+		"description": "console.log('', JSON.stringify())"
 	},
 	"rxjs .do(x => console.log()": {
 		"prefix": "rxdoj",
 		"body": [
-			".do(x => console.log($1)"
+			".do(x => console.log($1))$2"
 		],
-		"description": "rxjs .do(x => console.log()"
+		"description": "rxjs .do(x => console.log())$2"
 	},
 	"rxjs .do(x => console.log(`${JSON.stringify()}`))": {
 		"prefix": "rxdoj",
 		"body": [
-			".do(x => console.log(`$\\{JSON.stringify($1)\\}`))"
+			".do(x => console.log(`$\\{JSON.stringify($1)\\}`))$2"
 		],
 		"description": "rxjs .do(x => console.log(`${JSON.stringify()}`))"
 	}

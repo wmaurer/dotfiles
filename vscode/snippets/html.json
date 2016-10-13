@@ -1,0 +1,7 @@
+{
+	"ng2-translate": {
+		"prefix": "translate",
+		"body": "{{ '$1' | translate }}",
+		"description": "{{ '' | translate }}"
+	}
+}
