@@ -1,0 +1,29 @@
+{
+    "rulesDirectory": [
+        "node_modules/tslint-eslint-rules/dist/rules"
+    ],
+    "rules": {
+        "quotemark": [
+            true,
+            "single"
+        ],
+        "semicolon": [
+            true,
+            "always"
+        ],
+        "object-curly-spacing": [
+            true,
+            "always"
+        ],
+        "array-bracket-spacing": [
+            false,
+            "always",
+            {
+                "singleValue": false,
+                "objectsInArrays": false,
+                "arraysInArrays": false
+            }
+        ],
+        "no-trailing-whitespace": true
+    }
+}
