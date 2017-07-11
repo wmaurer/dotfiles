@@ -1,16 +1,27 @@
 {
-    "editor.insertSpaces": true,
-    "files.insertFinalNewline": true,
-    "editor.renderWhitespace": "boundary",
+    "editor.detectIndentation": false,
+    "editor.formatOnSave": true,
     "editor.formatOnType": true,
+    "editor.insertSpaces": true,
+    "editor.renderWhitespace": "boundary",
+    "editor.tabSize": 4,
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "html.suggest.angular1": false,
     "typescript.format.insertSpaceAfterCommaDelimiter": true,
+    "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
+    "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
     "typescript.format.insertSpaceAfterSemicolonInForStatements": true,
     "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
-    "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
-    "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
-    "typescript.format.placeOpenBraceOnNewLineForFunctions": false,
     "typescript.format.placeOpenBraceOnNewLineForControlBlocks": false,
-    "typescript.tsdk": "./node_modules/typescript/lib"
+    "typescript.format.placeOpenBraceOnNewLineForFunctions": false,
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true
+    }
 }
