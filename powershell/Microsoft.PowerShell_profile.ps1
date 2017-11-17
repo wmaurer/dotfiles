@@ -7,7 +7,6 @@ Set-PSReadlineOption -BellStyle None
 # https://stackoverflow.com/a/37715242/664533
 Set-PSReadlineKeyHandler -Key Tab -Function Complete
 
-
 Set-Alias np "C:\Program Files (x86)\Notepad++\notepad++.exe"
 Set-Alias vi "C:\Users\wayne\Get-ToolsLocation\neovim\Neovim\bin\nvim.exe"
 
