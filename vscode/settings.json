@@ -1,7 +1,21 @@
 {
+    "editor.fontFamily": "Hasklig, 'Source Code Pro', Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "boundary",
     "files.insertFinalNewline": true,
-    "editor.renderWhitespace": true,
     "files.trimTrailingWhitespace": true,
-    "editor.wrappingColumn": 0,
-    "softwrap.customsetting": 1000
+    "gitlens.advanced.git": "C:\\cmder\\vendor\\git-for-windows\\cmd\\git.exe",
+    "vim.easymotion": true,
+    "vim.enableNeovim": true,
+    "vim.neovimPath": "C:\\tools\\neovim\\Neovim\\bin\\nvim",
+    "vim.useCtrlKeys": true,
+    "vim.useSystemClipboard": true,
+    "vsicons.dontShowConfigManuallyChangedMessage": true,
+    "vsicons.dontShowNewVersionMessage": true,
+    "vsicons.projectDetection.autoReload": true,
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Dark Chrome DevTools",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.startupEditor": "newUntitledFile"
 }
