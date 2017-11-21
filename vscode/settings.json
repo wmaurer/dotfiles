@@ -5,10 +5,12 @@
     "editor.renderWhitespace": "boundary",
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
-    "gitlens.advanced.git": "C:\\cmder\\vendor\\git-for-windows\\cmd\\git.exe",
     "vim.easymotion": true,
     "vim.enableNeovim": true,
-    "vim.neovimPath": "C:\\tools\\neovim\\Neovim\\bin\\nvim",
+    "vim.neovimPath": "C:\\tools\\Neovim\\bin\\nvim",
+    "vim.otherModesKeyBindingsNonRecursive": [
+        { "before": ["<C-r>"], "after": [], "commands": [{ "command": "workbench.action.openRecent" ,"args":[]}] }
+    ],
     "vim.useCtrlKeys": true,
     "vim.useSystemClipboard": true,
     "vsicons.dontShowConfigManuallyChangedMessage": true,
@@ -17,5 +19,6 @@
     "window.zoomLevel": 0,
     "workbench.colorTheme": "Dark Chrome DevTools",
     "workbench.iconTheme": "vscode-icons",
-    "workbench.startupEditor": "newUntitledFile"
+    "workbench.startupEditor": "newUntitledFile",
+    "vim.disableExtension": false
 }
