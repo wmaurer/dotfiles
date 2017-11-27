@@ -1,4 +1,5 @@
 {
+    "editor.codeLens": false,
     "editor.fontFamily": "Hasklig, 'Source Code Pro', Consolas, 'Courier New', monospace",
     "editor.fontLigatures": true,
     "editor.minimap.enabled": false,
