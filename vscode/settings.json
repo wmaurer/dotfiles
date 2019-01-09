@@ -33,6 +33,18 @@
       "when": []
     },
     {
+      "body": "console.log('{{expr}}', {{expr}});",
+      "description": "console.log('message', variable);",
+      "name": "logm",
+      "when": ["expression", "function-call", "identifier"]
+    },
+    {
+      "body": "console.log({{expr}})",
+      "description": "console.log()",
+      "name": "log2",
+      "when": ["expression", "function-call", "identifier"]
+    },
+    {
       "body": "JSON.stringify({{expr}})",
       "description": "JSON.stringify()",
       "name": "stringify",
