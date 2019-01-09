@@ -827,6 +827,12 @@
     }
   ],
   "vim.useSystemClipboard": true,
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["p"],
+      "after": ["p", "g", "v", "y"]
+    }
+  ],
   "vim.visualstar": true,
   "window.menuBarVisibility": "toggle",
   "window.zoomLevel": 0,
