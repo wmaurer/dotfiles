@@ -826,6 +826,7 @@
       ]
     }
   ],
+  "vim.textwidth": 120,
   "vim.useSystemClipboard": true,
   "vim.visualModeKeyBindingsNonRecursive": [
     {
