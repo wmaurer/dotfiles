@@ -2,8 +2,6 @@
   "editor.accessibilitySupport": "off",
   "editor.codeLens": false,
   "editor.cursorBlinking": "solid",
-  "editor.cursorStyle": "line",
-  "editor.cursorWidth": 5,
   "editor.fontFamily": "'Dank Mono', Consolas, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 14,
@@ -830,13 +828,17 @@
   "vim.useSystemClipboard": true,
   "vim.visualModeKeyBindingsNonRecursive": [
     {
-      "before": ["p"],
-      "after": ["p", "g", "v", "y"]
+      "after": ["p", "g", "v", "y"],
+      "before": ["p"]
     }
   ],
   "vim.visualstar": true,
   "window.menuBarVisibility": "toggle",
   "window.zoomLevel": 0,
+  "workbench.colorCustomizations": {
+    "editorCursor.background": "#333333",
+    "editorCursor.foreground": "#dddddd"
+  },
   "workbench.colorTheme": "Monokai Pro (Filter Ristretto)",
   "workbench.editor.enablePreview": false,
   "workbench.iconTheme": "Monokai Pro (Filter Ristretto) Icons",
