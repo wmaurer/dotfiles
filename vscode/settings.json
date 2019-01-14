@@ -117,6 +117,16 @@
     },
     {
       "after": [],
+      "before": ["<leader>", "0"],
+      "commands": [
+        {
+          "args": [],
+          "command": "workbench.view.explorer"
+        }
+      ]
+    },
+    {
+      "after": [],
       "before": ["<leader>", "1"],
       "commands": [
         {
@@ -824,12 +834,54 @@
       ]
     }
   ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "after": ["d", "t", "[", "d", "s", "["],
+      "before": ["<leader>", "\"", "d", "a"]
+    },
+    {
+      "after": ["d", "t", "(", "d", "s", "("],
+      "before": ["<leader>", "\"", "d", "f"]
+    },
+    {
+      "after": ["d", "t", "<", "d", "s", "<"],
+      "before": ["<leader>", "\"", "d", "i"]
+    }
+  ],
   "vim.textwidth": 120,
   "vim.useSystemClipboard": true,
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "after": ["p", "g", "v", "y"],
       "before": ["p"]
+    },
+    {
+      "after": [
+        "S",
+        ")",
+        "%",
+        "i",
+        "c",
+        "o",
+        "n",
+        "s",
+        "o",
+        "l",
+        "e",
+        ".",
+        "l",
+        "o",
+        "g"
+      ],
+      "before": ["<leader>", "\"", "i", "l"]
+    },
+    {
+      "after": ["S", ")", "%", "i"],
+      "before": ["<leader>", "\"", "i", "f"]
+    },
+    {
+      "after": ["S", ">", "%", "i"],
+      "before": ["<leader>", "\"", "i", "i"]
     }
   ],
   "vim.visualstar": true,

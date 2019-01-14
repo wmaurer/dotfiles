@@ -36,6 +36,21 @@
     "command": "list.focusDown",
     "when": "listFocus && !inputFocus"
   },
+  //   {
+  //     "key": "space 0",
+  //     "command": "workbench.view.explorer",
+  //     "when": "!editorTextFocus"
+  //   },
+  //   {
+  //     "key": "space 1",
+  //     "command": "workbench.action.focusFirstEditorGroup",
+  //     "when": "!editorTextFocus"
+  //   },
+  //   {
+  //     "key": "space tab",
+  //     "command": "workbench.action.quickOpen",
+  //     "when": "!editorTextFocus"
+  //   },
   {
     "key": "ctrl+k",
     "command": "list.focusUp",
