@@ -1,4 +1,6 @@
 {
+  "bracket-pair-colorizer-2.showHorizontalScopeLine": false,
+  "bracket-pair-colorizer-2.showVerticalScopeLine": false,
   "editor.accessibilitySupport": "off",
   "editor.codeLens": false,
   "editor.cursorBlinking": "solid",
@@ -31,8 +33,8 @@
       "when": []
     },
     {
-      "body": "console.log('{{expr}}', {{expr}});",
-      "description": "console.log('message', variable);",
+      "body": "console.log('{{expr}}', {{expr}})",
+      "description": "console.log('message', variable)",
       "name": "logm",
       "when": ["expression", "function-call", "identifier"]
     },
@@ -57,6 +59,8 @@
   ],
   "vim.disableExtension": false,
   "vim.easymotion": true,
+  "vim.easymotionMarkerHeight": 18,
+  "vim.easymotionMarkerYOffset": -6,
   "vim.insertModeKeyBindings": [
     {
       "after": ["<Esc>"],
@@ -490,6 +494,10 @@
       "before": ["leader", "j", "l"]
     },
     {
+      "after": ["leader", "leader", "leader", "b", "d", "e"],
+      "before": ["leader", "j", "e"]
+    },
+    {
       "after": ["leader", "leader", "leader", "b", "d", "w"],
       "before": ["leader", "j", "w"]
     },
@@ -850,6 +858,28 @@
   ],
   "vim.textwidth": 120,
   "vim.useSystemClipboard": true,
+  "vim.visualModeKeyBindings": [
+    {
+      "after": [],
+      "before": ["<leader>", "<space>"],
+      "commands": [
+        {
+          "args": [],
+          "command": "workbench.action.showCommands"
+        }
+      ]
+    },
+    {
+      "after": [],
+      "before": ["<leader>", ";", ";"],
+      "commands": [
+        {
+          "args": [],
+          "command": "editor.action.commentLine"
+        }
+      ]
+    }
+  ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "after": ["p", "g", "v", "y"],
@@ -873,15 +903,19 @@
         "o",
         "g"
       ],
-      "before": ["<leader>", "\"", "i", "l"]
+      "before": ["<leader>", "\"", "w", "l"]
     },
     {
-      "after": ["S", ")", "%", "i"],
-      "before": ["<leader>", "\"", "i", "f"]
+      "after": ["S", ")", "h", "i"],
+      "before": ["<leader>", "\"", "w", "f"]
     },
     {
-      "after": ["S", ">", "%", "i"],
-      "before": ["<leader>", "\"", "i", "i"]
+      "after": ["S", ">", "h", "i"],
+      "before": ["<leader>", "\"", "w", "i"]
+    },
+    {
+      "after": ["S", "{", "h", "h", "v", "%", "S", ")"],
+      "before": ["<leader>", "\"", "w", "o"]
     }
   ],
   "vim.visualstar": true,

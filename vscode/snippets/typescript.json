@@ -1,37 +1,153 @@
 {
-  "Import statement": {
-    "prefix": "simp",
-    "body": ["import { $2 } from '$1';$3"],
-    "description": "Import statement"
+  "export statement": {
+    "body": ["export * from '$1';$0"],
+    "description": "export statement",
+    "prefix": "sexp"
   },
-  "Import default statement": {
-    "prefix": "simpd",
-    "body": ["import $2 from '$1';$3"],
-    "description": "Import default statement"
+  "export statement choose": {
+    "body": ["export { $0 } from '$1';"],
+    "description": "export statement",
+    "prefix": "sexpc"
+  },
+  "import default statement": {
+    "body": ["import ${2} from '${1}';$0"],
+    "description": "Import default statement",
+    "prefix": "simpd"
+  },
+  "import statement": {
+    "body": ["import { ${2} } from '${1}';$3"],
+    "description": "Import statement",
+    "prefix": "simp"
   },
   "io-ts": {
-    "prefix": "iots",
     "body": ["import * as t from 'io-ts';"],
-    "description": "io-ts"
+    "description": "io-ts",
+    "prefix": "iots"
   },
   "io-ts-t-type": {
-    "prefix": "iots-t-type",
     "body": ["export const ${1} = t.type({$0});"],
-    "description": "io-ts-t-type"
+    "description": "io-ts-t-type",
+    "prefix": "iots-t-type"
   },
   "io-ts-type": {
-    "prefix": "iots-type",
     "body": ["export type ${1} = t.TypeOf<typeof ${1}>;$0"],
-    "description": "io-ts"
+    "description": "io-ts",
+    "prefix": "iots-type"
+  },
+  "ng-component": {
+    "body": [
+      "import { Component } from '@angular/core';",
+      "",
+      "@Component({",
+      "\tselector: '${1}-${2}',",
+      "\ttemplateUrl: './${2}.html',",
+      "\tstyleUrls: ['./${2}.scss'],",
+      "})",
+      "export class ${3}Component {",
+      "\tconstructor() {}",
+      "}"
+    ],
+    "description": "ng-component",
+    "prefix": "ng-component"
+  },
+  "ng-effects": {
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "import { Actions, Effect } from '@ngrx/effects';",
+      "import { Observable } from 'rxjs';",
+      "",
+      "import { ${1}Service } from '../services/${2}.service';",
+      "",
+      "import { ${1}Action } from './${2}.state';",
+      "",
+      "@Injectable()",
+      "export class ${1}Effects {",
+      "\tconstructor(private actions: Actions, private ${3}Service: ${1}Service) {}",
+      "",
+      "\tprivate actions$ = (this.actions as any) as Observable<${1}Action>;",
+      "",
+      "\t@Effect()",
+      "\tpublic ${4} = $0",
+      "",
+      "}"
+    ],
+    "description": "ng-effects",
+    "prefix": "ng-effects"
+  },
+  "ng-onChanges": {
+    "body": [
+      "",
+      "// tslint:disable-next-line:use-life-cycle-interface",
+      "ngOnChanges(): void {}"
+    ],
+    "description": "ng-onChanges",
+    "prefix": "ng-onChanges"
+  },
+  "ng-onDestroy": {
+    "body": [
+      "",
+      "// tslint:disable-next-line:use-life-cycle-interface",
+      "ngOnDestroy(): void {}"
+    ],
+    "description": "ng-onDestroy",
+    "prefix": "ng-onDestroy"
+  },
+  "ng-service": {
+    "body": [
+      "import { HttpClient } from '@angular/common/http';",
+      "import { Injectable } from '@angular/core';",
+      "",
+      "@Injectable()",
+      "export class ${1}Service {",
+      "\tconstructor(private httpClient: HttpClient $0) {}",
+      "}"
+    ],
+    "description": "ng-service",
+    "prefix": "ng-service"
+  },
+  "redux-builder": {
+    "body": [
+      "import { ofType, reduxBuilder, reselect } from '@conduit/core';",
+      "import { createFeatureSelector } from '@ngrx/store';",
+      "",
+      "export interface ${1}Feature {$0}",
+      "",
+      "export interface ${1}State {",
+      "\treadonly ${2}: ${1}Feature;",
+      "}",
+      "",
+      "const built = reduxBuilder<${1}Feature>()",
+      "\t.declareInitialState({})",
+      "\t.declareActions({ x: ofType<{}>() })",
+      "\t.declareReducer(state => ({}))",
+      "\t.declareSelectors({});",
+      "",
+      "export const ${3}_FEATURE_KEY = '${2}';",
+      "export const ${2}Selectors = reselect(built.selectors, createFeatureSelector<${1}State, ${1}Feature>(${3}_FEATURE_KEY));",
+      "",
+      "export const { actions: ${1}Action } = built;",
+      "export type ${1}Action = typeof ${1}Action._Union;",
+      "",
+      "export function ${2}Reducer(state: any, action: any): any {",
+      "\treturn built.reducer(state, action);",
+      "}"
+    ],
+    "description": "redux-builder",
+    "prefix": "redux-builder"
   },
   "unionize-const": {
-    "prefix": "unionize-const",
     "body": ["export const ${1} = unionize({ ${2}: ofType<$3>(); $0 });"],
-    "description": "unionize-const"
+    "description": "unionize-const",
+    "prefix": "unionize-const"
   },
   "unionize-type": {
-    "prefix": "unionize-type",
     "body": ["export type ${1} = typeof ${1}._Union;$0"],
-    "description": "unionize-ts"
+    "description": "unionize-ts",
+    "prefix": "unionize-type"
+  },
+  "urljoin": {
+    "body": ["import * as urljoin from 'url-join';"],
+    "description": "urljoin",
+    "prefix": "urljoin"
   }
 }
