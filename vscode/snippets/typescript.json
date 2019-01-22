@@ -34,6 +34,11 @@
     "description": "io-ts",
     "prefix": "iots-type"
   },
+  "io-ts-interface": {
+    "body": ["export interface ${1} extends t.TypeOf<typeof ${1}> {}$0"],
+    "description": "io-ts",
+    "prefix": "iots-interface"
+  },
   "ng-component": {
     "body": [
       "import { Component } from '@angular/core';",
@@ -107,7 +112,7 @@
   },
   "redux-builder": {
     "body": [
-      "import { ofType, reduxBuilder, reselect } from '@conduit/core';",
+      "import { ofType, reduxBuilder, reselect, UnionOf } from '@conduit/core';",
       "import { createFeatureSelector } from '@ngrx/store';",
       "",
       "export interface ${1}Feature {$0}",
@@ -126,7 +131,7 @@
       "export const ${2}Selectors = reselect(built.selectors, createFeatureSelector<${1}State, ${1}Feature>(${3}_FEATURE_KEY));",
       "",
       "export const { actions: ${1}Action } = built;",
-      "export type ${1}Action = typeof ${1}Action._Union;",
+      "export type ${1}Action = UnionOf<typeof ${1}Action>;",
       "",
       "export function ${2}Reducer(state: any, action: any): any {",
       "\treturn built.reducer(state, action);",
