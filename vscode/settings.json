@@ -57,6 +57,7 @@
       "when": ["expression", "function-call", "identifier"]
     }
   ],
+  "postfix.languages": ["javascript", "typescript", "typescriptreact"],
   "vim.disableExtension": false,
   "vim.easymotion": true,
   "vim.easymotionMarkerHeight": 18,
