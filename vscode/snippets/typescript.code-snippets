@@ -2,55 +2,70 @@
   "export statement": {
     "body": ["export * from '$1';$0"],
     "description": "export statement",
-    "prefix": "sexp"
+    "prefix": "sexp",
+    "scope": "typescript,javascript,typescriptreact,javascriptreact"
   },
   "export statement choose": {
     "body": ["export { $0 } from '$1';"],
     "description": "export statement",
-    "prefix": "sexpc"
+    "prefix": "sexpc",
+    "scope": "typescript,javascript,typescriptreact,javascriptreact"
   },
   "import default statement": {
     "body": ["import ${2} from '${1}';$0"],
     "description": "Import default statement",
-    "prefix": "simpd"
+    "prefix": "simpd",
+    "scope": "typescript,javascript,typescriptreact,javascriptreact"
   },
   "import statement": {
     "body": ["import { ${2} } from '${1}';$3"],
     "description": "Import statement",
-    "prefix": "simp"
+    "prefix": "simp",
+    "scope": "typescript,javascript,typescriptreact,javascriptreact"
   },
   "io-ts": {
     "body": ["import * as t from 'io-ts';"],
     "description": "io-ts",
-    "prefix": "iots"
+    "prefix": "iots",
+    "scope": "typescript,typescriptreact"
   },
   "io-ts-t-type": {
     "body": ["export const ${1} = t.type({$0});"],
     "description": "io-ts-t-type",
-    "prefix": "iots-t-type"
+    "prefix": "iots-t-type",
+    "scope": "typescript,typescriptreact"
   },
   "io-ts-type": {
     "body": ["export type ${1} = t.TypeOf<typeof ${1}>;$0"],
     "description": "io-ts",
-    "prefix": "iots-type"
+    "prefix": "iots-type",
+    "scope": "typescript,typescriptreact"
   },
-  "ng-component": {
+  "io-ts-interface": {
+    "body": ["export interface ${1} extends t.TypeOf<typeof ${1}> {}$0"],
+    "description": "io-ts",
+    "prefix": "iots-interface",
+    "scope": "typescript,typescriptreact"
+  },
+  "ngx-component": {
     "body": [
-      "import { Component } from '@angular/core';",
+      "import { ChangeDetectionStrategy, Component } from '@angular/core';",
       "",
       "@Component({",
       "\tselector: '${1}-${2}',",
       "\ttemplateUrl: './${2}.html',",
       "\tstyleUrls: ['./${2}.scss'],",
+      "\tchangeDetection: ChangeDetectionStrategy.OnPush,",
       "})",
       "export class ${3}Component {",
       "\tconstructor() {}",
       "}"
     ],
-    "description": "ng-component",
-    "prefix": "ng-component"
+    "description": "ngx-component",
+    "prefix": "ngx-component",
+    "scope": "typescript,javascript"
   },
-  "ng-effects": {
+  "ngrx-effects": {
     "body": [
       "import { Injectable } from '@angular/core';",
       "import { Actions, Effect } from '@ngrx/effects';",
@@ -71,28 +86,31 @@
       "",
       "}"
     ],
-    "description": "ng-effects",
-    "prefix": "ng-effects"
+    "description": "ngrx-effects",
+    "prefix": "ngrx-effects",
+    "scope": "typescript,javascript"
   },
-  "ng-onChanges": {
+  "ngx-onChanges": {
     "body": [
       "",
       "// tslint:disable-next-line:use-life-cycle-interface",
       "ngOnChanges(): void {}"
     ],
-    "description": "ng-onChanges",
-    "prefix": "ng-onChanges"
+    "description": "ngx-onChanges",
+    "prefix": "ngx-onChanges",
+    "scope": "typescript,javascript"
   },
-  "ng-onDestroy": {
+  "ngx-onDestroy": {
     "body": [
       "",
       "// tslint:disable-next-line:use-life-cycle-interface",
       "ngOnDestroy(): void {}"
     ],
-    "description": "ng-onDestroy",
-    "prefix": "ng-onDestroy"
+    "description": "ngx-onDestroy",
+    "prefix": "ngx-onDestroy",
+    "scope": "typescript,javascript"
   },
-  "ng-service": {
+  "ngx-service": {
     "body": [
       "import { HttpClient } from '@angular/common/http';",
       "import { Injectable } from '@angular/core';",
@@ -102,12 +120,13 @@
       "\tconstructor(private httpClient: HttpClient $0) {}",
       "}"
     ],
-    "description": "ng-service",
-    "prefix": "ng-service"
+    "description": "ngx-service",
+    "prefix": "ngx-service",
+    "scope": "typescript,javascript"
   },
   "redux-builder": {
     "body": [
-      "import { ofType, reduxBuilder, reselect } from '@conduit/core';",
+      "import { ofType, reduxBuilder, reselect, UnionOf } from '@conduit/core';",
       "import { createFeatureSelector } from '@ngrx/store';",
       "",
       "export interface ${1}Feature {$0}",
@@ -126,28 +145,32 @@
       "export const ${2}Selectors = reselect(built.selectors, createFeatureSelector<${1}State, ${1}Feature>(${3}_FEATURE_KEY));",
       "",
       "export const { actions: ${1}Action } = built;",
-      "export type ${1}Action = typeof ${1}Action._Union;",
+      "export type ${1}Action = UnionOf<typeof ${1}Action>;",
       "",
-      "export function ${2}Reducer(state: any, action: any): any {",
+      "export function ${2}Reducer(state: ${1}Feature, action: ${1}Action): ${1}Feature {",
       "\treturn built.reducer(state, action);",
       "}"
     ],
     "description": "redux-builder",
-    "prefix": "redux-builder"
+    "prefix": "redux-builder",
+    "scope": "typescript"
   },
   "unionize-const": {
     "body": ["export const ${1} = unionize({ ${2}: ofType<$3>(); $0 });"],
     "description": "unionize-const",
-    "prefix": "unionize-const"
+    "prefix": "unionize-const",
+    "scope": "typescript,typescriptreact"
   },
   "unionize-type": {
     "body": ["export type ${1} = typeof ${1}._Union;$0"],
     "description": "unionize-ts",
-    "prefix": "unionize-type"
+    "prefix": "unionize-type",
+    "scope": "typescript,typescriptreact"
   },
   "urljoin": {
     "body": ["import * as urljoin from 'url-join';"],
     "description": "urljoin",
-    "prefix": "urljoin"
+    "prefix": "urljoin",
+    "scope": "typescript,javascript,typescriptreact,javascriptreact"
   }
 }
