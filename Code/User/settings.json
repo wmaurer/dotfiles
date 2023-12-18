@@ -16,8 +16,17 @@
     {
       "keys": "f.e",
       "name": "Go to line",
+      "icon": "list-tree",
       "type": "command",
       "command": "workbench.files.action.focusOpenEditorsView"
+    },
+    {
+      "keys": "j.w",
+      "name": "Jump to word",
+      "icon": "symbol-keyword",
+      "type": "command",
+      "command": "vscode-neovim.send",
+      "args": ":HopWordMW<CR>"
     }
   ],
   "vim.easymotion": true,
@@ -62,5 +71,6 @@
       "commands": ["editor.action.outdentLines"]
     }
   ],
-  "application.shellEnvironmentResolutionTimeout": 120
+  "application.shellEnvironmentResolutionTimeout": 120,
+  "workbench.startupEditor": "none"
 }
