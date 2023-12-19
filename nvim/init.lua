@@ -21,12 +21,21 @@ require("lazy").setup({
 
 require'hop'.setup()
 
+
 vim.o.clipboard = "unnamedplus"
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
 if vim.g.vscode then
     vim.keymap.set('n', '<space>', ':call VSCodeNotify("vspacecode.space")<CR>')
+    local function set_hl(group, tbl)
+        vim.api.nvim_set_hl(0, group, type(tbl) == 'table' and tbl or { fg = tbl })
+    end
+
+    set_hl('HopNextKey', { fg = '#ffffff', bg = '#ff007c', bold = true, italic = false })
+    set_hl('HopNextKey1', { fg = '#ffffff', bg = '#f76707', bold = true, italic = false })
+    set_hl('HopNextKey2', { fg = '#ffffff', bg = '#e67700', bold = true, italic = false })
+    set_hl('HopUnmatched', { fg = '#666666', sp = '#666666' })
 else
     vim.o.tabstop = 4
     vim.o.shiftwidth = 4

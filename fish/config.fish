@@ -8,8 +8,8 @@ if status is-interactive
     # make nix with with fish
     any-nix-shell fish --info-right | source
 
-    alias vi="/usr/local/bin/nvim"
-    alias x="exit"
+    alias vi = "/usr/local/bin/nvim"
+    alias x = "exit"
 
     # turn on direnv
     direnv hook fish | source

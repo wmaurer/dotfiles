@@ -20,6 +20,15 @@
       "type": "command",
       "command": "workbench.files.action.focusOpenEditorsView"
     },
+    // this doesn't work, need to somehow prompt for a character
+    {
+      "key": "j.j",
+      "name": "Jump to character",
+      "icon": "case-sensitive",
+      "type": "command",
+      "command": "vscode-neovim.send",
+      "args": ":HopChar1MW<CR>"
+    },
     {
       "keys": "j.w",
       "name": "Jump to word",
@@ -27,6 +36,14 @@
       "type": "command",
       "command": "vscode-neovim.send",
       "args": ":HopWordMW<CR>"
+    },
+    {
+      "keys": "j.l",
+      "name": "Jump to line",
+      "icon": "list-flat",
+      "type": "command",
+      "command": "vscode-neovim.send",
+      "args": ":HopLineStartMW<CR>"
     }
   ],
   "vim.easymotion": true,
