@@ -9,6 +9,7 @@ if status is-interactive
     any-nix-shell fish --info-right | source
 
     alias vi="/usr/local/bin/nvim"
+    alias j="jump"
     alias x="exit"
 
     # turn on direnv
