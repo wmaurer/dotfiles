@@ -11,10 +11,12 @@
 !/Code/User/snippets/
 !/fish
 /fish/conf.d
+/fish/fish_variables
 /fish/functions/*
 !/fish/functions/fisher.fish
 !/fish/functions/fish_prompt.fish
 !/fish/functions/fish_user_key_bindings.fish
+!/fish/functions/path.fish
 !/gitui/
 !/nvim/
 /nvim/*
