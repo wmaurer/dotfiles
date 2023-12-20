@@ -14,6 +14,9 @@ if status is-interactive
     # turn on direnv
     direnv hook fish | source
 
+    # turn off dir underlining: https://unix.stackexchange.com/questions/272629/how-to-stop-fish-shell-from-underlining-path
+    set fish_color_valid_path
+
     # stop the locale problem with nix and vscode: https://www.reddit.com/r/NixOS/comments/oj4kmd/comment/h4zjrj5/
     # export LC_ALL=
 
