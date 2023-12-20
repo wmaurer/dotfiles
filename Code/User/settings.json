@@ -1,6 +1,6 @@
 {
   "window.menuBarVisibility": "toggle",
-  "workbench.colorTheme": "Dracula",
+  "workbench.colorTheme": "Punk",
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
