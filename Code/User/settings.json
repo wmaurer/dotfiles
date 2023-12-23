@@ -89,5 +89,8 @@
     }
   ],
   "application.shellEnvironmentResolutionTimeout": 120,
-  "workbench.startupEditor": "none"
+  "workbench.startupEditor": "none",
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  }
 }
