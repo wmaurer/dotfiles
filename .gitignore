@@ -1,6 +1,7 @@
 /*
 
 !/.gitignore
+!/mkgitconfig
 !/alacritty/
 !/Code/
 /Code/*
