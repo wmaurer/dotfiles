@@ -9,8 +9,10 @@ if status is-interactive
     any-nix-shell fish --info-right | source
 
     alias vi="/usr/local/bin/nvim"
-    alias j="jump"
-    alias x="exit"
+
+    abbr -a j jump
+    abbr -a x exit
+    abbr -a cdu cd-gitroot
 
     # turn on direnv
     direnv hook fish | source
