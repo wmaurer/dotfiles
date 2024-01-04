@@ -154,7 +154,7 @@
     "command": "vspacecode.space",
     "when": "explorerViewletFocus"
   },
-  // for space+f+t/e when in nothing is focused, the keybindings are in settings.json
+  // for space+f+t/e when nothing is focused, the keybindings are in settings.json
   {
     "key": "space",
     "command": "vspacecode.space",
@@ -170,5 +170,11 @@
     "key": "x",
     "command": "workbench.action.closeActiveEditor",
     "when": "explorerViewletVisible && openEditorsFocus"
+  },
+  // disable ctrl+f in terminal because i use that to accept autocomplete
+  {
+    "key": "ctrl+f",
+    "command": "-workbench.action.terminal.focusFind",
+    "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocusInAny && terminalHasBeenCreated || terminalFocusInAny && terminalProcessSupported"
   }
 ]

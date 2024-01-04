@@ -8,7 +8,6 @@
   "editor.fontFamily": "'Monaspace Argon', monospace",
   "editor.fontLigatures": "'calt', 'liga', 'dlig', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08'",
   "editor.fontSize": 14.5,
-  "window.zoomLevel": 0.6,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.minimap.enabled": false,
   "editor.formatOnSave": true,
@@ -44,6 +43,13 @@
       "type": "command",
       "command": "vscode-neovim.send",
       "args": ":HopLineStartMW<CR>"
+    },
+    {
+      "keys": "q.r",
+      "name": "Run Current Query",
+      "icon": "list-flat",
+      "type": "command",
+      "command": "sqltools.executeCurrentQuery"
     }
   ],
   "vim.easymotion": true,
@@ -92,5 +98,18 @@
   "workbench.startupEditor": "none",
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust-analyzer"
-  }
+  },
+  "sqltools.useNodeRuntime": true,
+  "sqltools.results.reuseTabs": "connection",
+  "rust-analyzer.inlayHints.parameterHints.enable": false,
+  "rust-analyzer.inlayHints.typeHints.enable": false,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "Cargo.toml": "Cargo.lock",
+    "*.ts": "${capture}.typegen.ts",
+    "*.tsx": "${capture}.typegen.ts",
+    "*.mts": "${capture}.typegen.ts",
+    "*.cts": "${capture}.typegen.ts"
+  },
+  "terminal.integrated.allowChords": false
 }
