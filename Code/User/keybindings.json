@@ -161,9 +161,26 @@
     "when": "!editorIsOpen && !inputFocus"
   },
   {
-    "key": "shift+escape",
+    "key": "ctrl+escape",
     "command": "workbench.action.focusActiveEditorGroup",
-    "when": "terminalFocus"
+    "when": "terminalFocus || (inputFocus && searchViewletFocus)"
+  },
+  {
+    "key": "space",
+    "command": "vspacecode.space",
+    "when": "sideBarFocus && !inputFocus && !whichkeyActive"
+  },
+  {
+    // for search input
+    "key": "escape",
+    "command": "search.action.focusSearchList",
+    "when": "inputFocus && searchViewletFocus"
+  },
+  {
+    // for scm input box
+    "key": "escape",
+    "command": "workbench.scm.focus",
+    "when": "inputFocus && focusedView == 'workbench.scm'"
   },
   // close editor in open editors view
   {
