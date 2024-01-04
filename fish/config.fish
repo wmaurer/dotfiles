@@ -25,7 +25,7 @@ if status is-interactive
 
     set -x PATH $PATH ~/local/bin ~/.cargo/bin
 
-    if not set -q TMUX
+    if not test $TERM_PROGRAM = "tmux"
         exec tmux
     end
 end
