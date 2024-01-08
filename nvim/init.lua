@@ -26,6 +26,10 @@ vim.o.clipboard = "unnamedplus"
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
+vim.api.nvim_set_keymap('n', '0', '^', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '^', '0', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('x', 'p', '"_dP', { noremap = true, silent = true })
+
 if vim.g.vscode then
     vim.keymap.set('n', '<space>', ':call VSCodeNotify("vspacecode.space")<CR>')
     local function set_hl(group, tbl)

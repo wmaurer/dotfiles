@@ -1,115 +1,121 @@
 {
-  "window.menuBarVisibility": "toggle",
-  "workbench.colorTheme": "Night Owl",
-  "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
-  },
-  "nxConsole.showNodeVersionOnStartup": false,
-  "editor.fontFamily": "'Monaspace Argon', monospace",
-  "editor.fontLigatures": "'calt', 'liga', 'dlig', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08'",
-  "editor.fontSize": 14.5,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.minimap.enabled": false,
-  "editor.formatOnSave": true,
-  "vspacecode.bindingOverrides": [
-    {
-      "keys": "f.e",
-      "name": "Go to line",
-      "icon": "list-tree",
-      "type": "command",
-      "command": "workbench.files.action.focusOpenEditorsView"
+    "window.menuBarVisibility": "toggle",
+    "workbench.colorTheme": "Night Owl (No Italics)",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
     },
-    // this doesn't work, need to somehow prompt for a character
-    {
-      "key": "j.j",
-      "name": "Jump to character",
-      "icon": "case-sensitive",
-      "type": "command",
-      "command": "vscode-neovim.send",
-      "args": ":HopChar1MW<CR>"
-    },
-    {
-      "keys": "j.w",
-      "name": "Jump to word",
-      "icon": "symbol-keyword",
-      "type": "command",
-      "command": "vscode-neovim.send",
-      "args": ":HopWordMW<CR>"
-    },
-    {
-      "keys": "j.l",
-      "name": "Jump to line",
-      "icon": "list-flat",
-      "type": "command",
-      "command": "vscode-neovim.send",
-      "args": ":HopLineStartMW<CR>"
-    },
-    {
-      "keys": "q.r",
-      "name": "Run Current Query",
-      "icon": "list-flat",
-      "type": "command",
-      "command": "sqltools.executeCurrentQuery"
-    }
-  ],
-  "vim.easymotion": true,
-  "vim.useSystemClipboard": true,
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<space>"],
-      "commands": ["vspacecode.space"]
-    },
-    {
-      "before": [","],
-      "commands": [
-        "vspacecode.space",
+    "nxConsole.showNodeVersionOnStartup": false,
+    "editor.fontFamily": "'Monaspace Argon', monospace",
+    "editor.fontLigatures": "'calt', 'liga', 'dlig', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08'",
+    "editor.fontSize": 14.5,
+    "window.zoomLevel": 0.2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "vspacecode.bindingOverrides": [
         {
-          "command": "whichkey.triggerKey",
-          "args": "m"
-        }
-      ]
-    }
-  ],
-  "vim.visualModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<space>"],
-      "commands": ["vspacecode.space"]
-    },
-    {
-      "before": [","],
-      "commands": [
-        "vspacecode.space",
+            "keys": "f.e",
+            "name": "Go to line",
+            "icon": "list-tree",
+            "type": "command",
+            "command": "workbench.files.action.focusOpenEditorsView"
+        },
+        // this doesn't work, need to somehow prompt for a character
         {
-          "command": "whichkey.triggerKey",
-          "args": "m"
+            "key": "j.j",
+            "name": "Jump to character",
+            "icon": "case-sensitive",
+            "type": "command",
+            "command": "vscode-neovim.send",
+            "args": ":HopChar1MW<CR>"
+        },
+        {
+            "keys": "j.w",
+            "name": "Jump to word",
+            "icon": "symbol-keyword",
+            "type": "command",
+            "command": "vscode-neovim.send",
+            "args": ":HopWordMW<CR>"
+        },
+        {
+            "keys": "j.l",
+            "name": "Jump to line",
+            "icon": "list-flat",
+            "type": "command",
+            "command": "vscode-neovim.send",
+            "args": ":HopLineStartMW<CR>"
+        },
+        {
+            "keys": "q.r",
+            "name": "Run Current Query",
+            "icon": "list-flat",
+            "type": "command",
+            "command": "sqltools.executeCurrentQuery"
         }
-      ]
+    ],
+    "vim.easymotion": true,
+    "vim.useSystemClipboard": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<space>"],
+            "commands": ["vspacecode.space"]
+        },
+        {
+            "before": [","],
+            "commands": [
+                "vspacecode.space",
+                {
+                    "command": "whichkey.triggerKey",
+                    "args": "m"
+                }
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<space>"],
+            "commands": ["vspacecode.space"]
+        },
+        {
+            "before": [","],
+            "commands": [
+                "vspacecode.space",
+                {
+                    "command": "whichkey.triggerKey",
+                    "args": "m"
+                }
+            ]
+        },
+        {
+            "before": [">"],
+            "commands": ["editor.action.indentLines"]
+        },
+        {
+            "before": ["<"],
+            "commands": ["editor.action.outdentLines"]
+        }
+    ],
+    "application.shellEnvironmentResolutionTimeout": 120,
+    "workbench.startupEditor": "none",
+    "[rust]": {
+        "editor.defaultFormatter": "rust-lang.rust-analyzer"
     },
-    {
-      "before": [">"],
-      "commands": ["editor.action.indentLines"]
+    "sqltools.useNodeRuntime": true,
+    "sqltools.results.reuseTabs": "connection",
+    "rust-analyzer.inlayHints.parameterHints.enable": false,
+    "rust-analyzer.inlayHints.typeHints.enable": false,
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+        "Cargo.toml": "Cargo.lock",
+        "*.ts": "${capture}.typegen.ts",
+        "*.tsx": "${capture}.typegen.ts",
+        "*.mts": "${capture}.typegen.ts",
+        "*.cts": "${capture}.typegen.ts"
     },
-    {
-      "before": ["<"],
-      "commands": ["editor.action.outdentLines"]
-    }
-  ],
-  "application.shellEnvironmentResolutionTimeout": 120,
-  "workbench.startupEditor": "none",
-  "[rust]": {
-    "editor.defaultFormatter": "rust-lang.rust-analyzer"
-  },
-  "sqltools.useNodeRuntime": true,
-  "sqltools.results.reuseTabs": "connection",
-  "rust-analyzer.inlayHints.parameterHints.enable": false,
-  "rust-analyzer.inlayHints.typeHints.enable": false,
-  "explorer.fileNesting.enabled": true,
-  "explorer.fileNesting.patterns": {
-    "Cargo.toml": "Cargo.lock",
-    "*.ts": "${capture}.typegen.ts",
-    "*.tsx": "${capture}.typegen.ts",
-    "*.mts": "${capture}.typegen.ts",
-    "*.cts": "${capture}.typegen.ts"
-  },
-  "terminal.integrated.allowChords": false
+    "terminal.integrated.allowChords": false,
+    "workbench.editor.showTabs": "none",
+    "explorer.openEditors.sortOrder": "alphabetical",
+    "window.dialogStyle": "custom",
+    "window.restoreFullscreen": true,
+    "window.titleBarStyle": "custom",
+    "editor.minimap.enabled": false
 }
