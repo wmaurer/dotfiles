@@ -117,5 +117,17 @@
     "window.dialogStyle": "custom",
     "window.restoreFullscreen": true,
     "window.titleBarStyle": "custom",
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "workbench.colorCustomizations": {
+        "[Night Owl (No Italics)]": {
+            "activityBar.background": "#000C1D",
+            "activityBar.border": "#102a44",
+            "activityBar.activeBorder": "#ff0000",
+            "sideBar.background": "#001122",
+            "sideBar.foreground": "#8BADC1",
+            "focusBorder": "#c5e478"
+        }
+    },
+    "accessibility.dimUnfocused.enabled": true,
+    "accessibility.dimUnfocused.opacity": 0.5
 }
