@@ -9,6 +9,7 @@
 /Code/User/*
 !/Code/User/keybindings.json
 !/Code/User/settings.json
+!/Code/User/.prettierrc
 !/Code/User/snippets/
 !/fish
 /fish/conf.d
