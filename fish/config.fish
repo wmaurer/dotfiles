@@ -13,6 +13,7 @@ if status is-interactive
     abbr -a j jump
     abbr -a x exit
     abbr -a cdu cd-gitroot
+    abbr -a o xdg-open
 
     # turn on direnv
     direnv hook fish | source
