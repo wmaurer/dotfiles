@@ -1,0 +1,9 @@
+use_nvm() {
+  local version
+  version="$1"
+
+  if [[ -d ~/.local/share/nvm/"${version}"/bin ]]; then
+    PATH_add /home/wayne/.local/share/nvm/$version/bin
+  fi
+}
+

@@ -6,7 +6,7 @@ if status is-interactive
     fish_vi_key_bindings
 
     # make nix with with fish
-    any-nix-shell fish --info-right | source
+    # any-nix-shell fish --info-right | source
 
     alias vi="/usr/local/bin/nvim"
 
