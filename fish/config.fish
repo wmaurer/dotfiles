@@ -14,6 +14,7 @@ if status is-interactive
     abbr -a x exit
     abbr -a cdu cd-gitroot
     abbr -a o xdg-open
+    abbr -a spot "alacritty -e ncspot &"
 
     # turn on direnv
     direnv hook fish | source
@@ -26,8 +27,8 @@ if status is-interactive
 
     set -x PATH $PATH ~/local/bin ~/.cargo/bin
 
-    if not test $TERM_PROGRAM = "tmux"
-        exec tmux
+    if not test "$TERM_PROGRAM" = "tmux"
+      exec tmux
     end
 end
 
