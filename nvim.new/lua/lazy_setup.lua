@@ -133,7 +133,82 @@ require("lazy").setup {
       },
     },
   },
-  { "hrsh7th/nvim-cmp" },
+  {
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    dependencies = {
+      {
+        "L3MON4D3/LuaSnip",
+        dependencies = "rafamadriz/friendly-snippets",
+        opts = { history = true, updateevents = "TextChanged,TextChangedI" },
+        config = function(_, opts) require("luasnip").config.set_config(opts) end,
+      },
+
+      -- autopairing of (){}[] etc
+      {
+        "windwp/nvim-autopairs",
+        opts = {
+          fast_wrap = {},
+          disable_filetype = { "TelescopePrompt", "vim" },
+        },
+        config = function(_, opts)
+          require("nvim-autopairs").setup(opts)
+
+          -- setup cmp for autopairs
+          local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+          require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+        end,
+      },
+
+      {
+        "saadparwaiz1/cmp_luasnip",
+        "hrsh7th/cmp-nvim-lua",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+      },
+    },
+    opts = function()
+      local cmp = require "cmp"
+
+      return {
+        completion = {
+          completeopt = "menu,menuone",
+        },
+
+        window = {
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered(),
+        },
+        snippet = {
+          expand = function(args) require("luasnip").lsp_expand(args.body) end,
+        },
+
+        -- formatting = formatting_style,
+
+        mapping = {
+          ["<C-p>"] = cmp.mapping.select_prev_item(),
+          ["<Up>"] = cmp.mapping.select_prev_item(),
+          ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+          ["<C-n>"] = cmp.mapping.select_next_item(),
+          ["<Down>"] = cmp.mapping.select_next_item(),
+          ["<Tab>"] = cmp.mapping.select_next_item(),
+          ["<C-Space>"] = cmp.mapping.complete(),
+          ["<Esc>"] = cmp.mapping.close(),
+          ["<Enter>"] = cmp.mapping.confirm(),
+        },
+
+        sources = {
+          { name = "nvim_lsp" },
+          { name = "luasnip" },
+          { name = "buffer" },
+          { name = "nvim_lua" },
+          { name = "path" },
+        },
+      }
+    end,
+    config = function(_, opts) require("cmp").setup(opts) end,
+  },
 }
 
 vim.opt.cursorline = true
