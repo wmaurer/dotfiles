@@ -2,6 +2,25 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 require("lazy").setup {
+  { "AstroNvim/astrocore", lazy = true },
+  { "AstroNvim/astroui", lazy = true },
+  {
+    "rebelot/heirline.nvim",
+    event = "BufEnter",
+    dependencies = {
+      "AstroNvim/astroui",
+      "AstroNvim/astrocore",
+    },
+    config = function()
+      local status = require "astroui.status"
+      require("heirline").setup {
+        statusline = {
+          hl = { fg = "fg", bg = "bg" },
+          status.component.mode(),
+        },
+      }
+    end,
+  },
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -74,6 +93,7 @@ require("lazy").setup {
           "fish",
           "gitignore",
           "javascript",
+          "jsdoc",
           "json",
           "lua",
           "luap",
@@ -110,7 +130,12 @@ require("lazy").setup {
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    opts = function(_, opts) opts.ensure_installed = { "lua_ls" } end,
+    opts = function(_, opts)
+      opts.ensure_installed = {
+        "lua_ls",
+        "tsserver",
+      }
+    end,
   },
   {
     "jay-babu/mason-null-ls.nvim",
@@ -119,7 +144,7 @@ require("lazy").setup {
       "williamboman/mason.nvim",
       "nvimtools/none-ls.nvim",
     },
-    opts = function(_, opts) opts.ensure_installed = { "stylua", "selene" } end,
+    opts = function(_, opts) opts.ensure_installed = { "stylua", "selene", "prettierd" } end,
   },
   {
     "stevearc/conform.nvim",
@@ -209,6 +234,11 @@ require("lazy").setup {
     end,
     config = function(_, opts) require("cmp").setup(opts) end,
   },
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
+  },
 }
 
 vim.opt.cursorline = true
@@ -232,3 +262,7 @@ vim.api.nvim_set_keymap("n", "<Leader>w", "<Cmd>w<CR>", { desc = "Save" })
 vim.api.nvim_set_keymap("n", "<Leader>q", "<Cmd>confirm q<CR>", { desc = "Quit Window" })
 vim.api.nvim_set_keymap("n", "<Leader>Q", "<Cmd>confirm qall<CR>", { desc = "Exit AstroNvim" })
 vim.api.nvim_set_keymap("n", "<Leader>n", "<Cmd>enew<CR>", { desc = "New File" })
+
+-- vim.api.nvim_set_keymap("n", "<Leader>la", "cccccccckkckkccccc:cccccc     cccccccckkckkccccc
+
+--vim.lsp.buf.code_action() end, { desc = "LSP code action" })
