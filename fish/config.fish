@@ -15,6 +15,8 @@ if status is-interactive
     abbr -a cdu cd-gitroot
     abbr -a o xdg-open
     abbr -a spot "alacritty -e ncspot &"
+    abbr -a nv neovide
+    abbr -a pnpmci "pnpm install --frozen-lockfile"
 
     # turn on direnv
     direnv hook fish | source
@@ -27,8 +29,8 @@ if status is-interactive
 
     set -x PATH $PATH ~/local/bin ~/.cargo/bin
 
-    if not test "$TERM_PROGRAM" = "tmux"
-      exec tmux
-    end
+    # if not test "$TERM_PROGRAM" = "tmux"
+    #     exec tmux
+    # end
 end
 
