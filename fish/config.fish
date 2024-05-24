@@ -15,7 +15,6 @@ if status is-interactive
     abbr -a cdu cd-gitroot
     abbr -a o xdg-open
     abbr -a spot "alacritty -e ncspot &"
-    abbr -a nv neovide
     abbr -a pnpmci "pnpm install --frozen-lockfile"
 
     # turn on direnv
@@ -23,6 +22,8 @@ if status is-interactive
 
     # turn off dir underlining: https://unix.stackexchange.com/questions/272629/how-to-stop-fish-shell-from-underlining-path
     set fish_color_valid_path
+
+    set --universal nvm_default_version v22
 
     # stop the locale problem with nix and vscode: https://www.reddit.com/r/NixOS/comments/oj4kmd/comment/h4zjrj5/
     # export LC_ALL=
