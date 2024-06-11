@@ -1,4 +1,4 @@
-function ghrc -d "gh repo clone with dir"
+function ghrcd -d "gh repo clone with dir"
     set parts (string split / $argv)
     if not test -d $parts[1]
         mkdir $parts[1]

@@ -8,7 +8,11 @@ if status is-interactive
     # make nix with with fish
     # any-nix-shell fish --info-right | source
 
-    alias vi="/usr/local/bin/nvim"
+    if test -f /usr/bin/nvim 
+        alias vi="/usr/bin/nvim"
+    else if test -f /usr/local/bin/nvim 
+        alias vi="/usr/local/bin/nvim"
+    end
 
     abbr -a j jump
     abbr -a x exit
@@ -16,6 +20,7 @@ if status is-interactive
     abbr -a o xdg-open
     abbr -a spot "alacritty -e ncspot &"
     abbr -a pnpmci "pnpm install --frozen-lockfile"
+    abbr -a ghrc "gh repo clone"
 
     # turn on direnv
     direnv hook fish | source
@@ -28,7 +33,7 @@ if status is-interactive
     # stop the locale problem with nix and vscode: https://www.reddit.com/r/NixOS/comments/oj4kmd/comment/h4zjrj5/
     # export LC_ALL=
 
-    set -x PATH $PATH ~/local/bin ~/.cargo/bin
+    set -x PATH $PATH ~/local/bin ~/.cargo/bin ~/.humanlog/bin
 
     # if not test "$TERM_PROGRAM" = "tmux"
     #     exec tmux
