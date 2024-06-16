@@ -21,6 +21,7 @@ if status is-interactive
     abbr -a spot "alacritty -e ncspot &"
     abbr -a pnpmci "pnpm install --frozen-lockfile"
     abbr -a ghrc "gh repo clone"
+    abbr -a dui lazydocker
 
     # turn on direnv
     direnv hook fish | source
