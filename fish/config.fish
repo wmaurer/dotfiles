@@ -22,6 +22,8 @@ if status is-interactive
     abbr -a pnpmci "pnpm install --frozen-lockfile"
     abbr -a ghrc "gh repo clone"
     abbr -a dui lazydocker
+    abbr -a nv "neovide &; disown"
+    abbr -a reset-nvim "rm -rf .local/share/nvim/ .local/state/nvim/ .cache/nvim/"
 
     # turn on direnv
     direnv hook fish | source
@@ -35,6 +37,8 @@ if status is-interactive
     # export LC_ALL=
 
     set -x PATH $PATH ~/local/bin ~/.cargo/bin ~/.humanlog/bin
+
+    source "$HOME/.cargo/env.fish"
 
     # if not test "$TERM_PROGRAM" = "tmux"
     #     exec tmux
