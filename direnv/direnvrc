@@ -1,9 +1,22 @@
 use_nvm() {
   local version
-  version="$1"
+
+  if [ -n "$1" ]; then
+    version="$1"
+  elif [ -f .nvmrc ]; then
+    version=$(<.nvmrc)
+    version=$(fish -c "nvm use $version | grep -o 'v[0-9]\+\.[0-9]\+\.[0-9]\+' | head -n 1")
+  else
+    echo "No version specified and no .nvmrc file found."
+    return 1
+  fi
 
   if [[ -d ~/.local/share/nvm/"${version}"/bin ]]; then
+    echo "Using NodeJS $version"
     PATH_add /home/wayne/.local/share/nvm/$version/bin
+  else
+    echo "Node version ${version} not found in ~/.local/share/nvm"
+    return 1
   fi
 }
 
