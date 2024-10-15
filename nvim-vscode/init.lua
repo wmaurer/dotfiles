@@ -1,7 +1,7 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy-vscode/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
-	"git",
+		"git",
 		"clone",
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- https://www.lazyvim.org/extras/vscode
 require("lazy").setup({
-	"monaqa/dial.nvim",
+	-- "monaqa/dial.nvim",
 	"ggandor/flit.nvim",
 	"folke/lazy.nvim",
 	"ggandor/leap.nvim",
@@ -21,28 +21,31 @@ require("lazy").setup({
 	"echasnovski/mini.comment",
 	"echasnovski/mini.move",
 	"echasnovski/mini.pairs",
-	"echasnovski/mini.surround",
+	-- "echasnovski/mini.surround",
+	"tpope/vim-surround",
 	"nvim-treesitter/nvim-treesitter",
 	"nvim-treesitter/nvim-treesitter-textobjects",
 	"JoosepAlviste/nvim-ts-context-commentstring",
 	"tpope/vim-repeat",
-	"gbprod/yanky.nvim"
+	"gbprod/yanky.nvim",
 })
 
-require('leap').create_default_mappings()
-require('mini.move').setup()
-require('mini.surround').setup()
+vim.keymap.set('n', 's', '<Plug>(leap)')
+require('leap').opts.equivalence_classes = { ' \t\r\n', '([{', ')]}', '\'"`' }
+require('leap.user').set_repeat_keys('<enter>', '<backspace>')
+require("mini.move").setup()
+-- require("mini.surround").setup()
 require("yanky").setup({
 	highlight = {
-    		on_put = false,
-    		on_yank = false,
-  	}
+		on_put = false,
+		on_yank = false,
+	},
 })
 
 --
 -- vim.keymap.set({"n","x"}, "p", "<Plug>(YankyPutAfter)")
 -- vim.keymap.set({"n","x"}, "P", "<Plug>(YankyPutBefore)")
-vim.keymap.set({"n","x"}, "p", "<Plug>(YankyPutBefore)")
+vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutBefore)")
 -- vim.keymap.set({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
 -- vim.keymap.set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
 --
