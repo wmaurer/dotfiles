@@ -24,6 +24,7 @@
   ],
   "vim.useSystemClipboard": true,
   "whichkey.delay": 300,
+  "vim.easymotionKeys": "hklyuiopnmqwertzxcvbasdgjf",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<space>"],
@@ -73,6 +74,16 @@
       "name": "Quick open",
       "type": "command",
       "command": "workbench.action.quickOpen"
+    },
+    {
+      "keys": "j.e",
+      "name": "Jump to word end",
+      "icon": "symbol-keyword",
+      "type": "command",
+      "command": "vim.remap",
+      "args": {
+        "after": ["leader", "leader", "leader", "b", "d", "e"]
+      }
     },
     {
       "keys": "c",
