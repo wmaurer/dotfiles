@@ -30,9 +30,13 @@ require("lazy").setup({
 	"gbprod/yanky.nvim",
 })
 
-vim.keymap.set('n', 's', '<Plug>(leap)')
-require('leap').opts.equivalence_classes = { ' \t\r\n', '([{', ')]}', '\'"`' }
-require('leap.user').set_repeat_keys('<enter>', '<backspace>')
+vim.o.clipboard = "unnamedplus"
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
+vim.keymap.set("n", "s", "<Plug>(leap)")
+require("leap").opts.equivalence_classes = { " \t\r\n", "([{", ")]}", "'\"`" }
+require("leap.user").set_repeat_keys("<enter>", "<backspace>")
 require("mini.move").setup()
 -- require("mini.surround").setup()
 require("yanky").setup({

@@ -1,11 +1,137 @@
 {
-    "window.zoomLevel": 1.15,
-    "workbench.colorTheme": "Catppuccin Mocha",
-    "workbench.iconTheme": "catppuccin-mocha",
-    "extensions.experimental.affinity": {
-        "asvetliakov.vscode-neovim": 1
+  "editor.formatOnSave": true,
+  "window.zoomLevel": 1.8,
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.iconTheme": "catppuccin-mocha",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "catppuccin.italicKeywords": false,
+  "workbench.startupEditor": "none",
+  "vim.easymotion": true,
+  "editor.minimap.enabled": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "animations.Install-Method": "Apc Customize UI++",
+  "animations.Enabled": true,
+  "animations.CursorAnimation": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "apc.imports": [
+    "file://${userHome}/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.4/dist/updateHandler.js"
+  ],
+  "vim.useSystemClipboard": true,
+  "whichkey.delay": 300,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<space>"],
+      "commands": ["vspacecode.space"]
     },
-    "vscode-neovim.neovimInitVimPaths.linux": "/home/wayne/.config/nvim-vscode/init.lua",
-    "catppuccin.italicKeywords": false,
-    "workbench.startupEditor": "none"
+    {
+      "before": [","],
+      "commands": [
+        "vspacecode.space",
+        {
+          "command": "whichkey.triggerKey",
+          "args": "m"
+        }
+      ]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<space>"],
+      "commands": ["vspacecode.space"]
+    },
+    {
+      "before": [","],
+      "commands": [
+        "vspacecode.space",
+        {
+          "command": "whichkey.triggerKey",
+          "args": "m"
+        }
+      ]
+    },
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    }
+  ],
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vspacecode.bindingOverrides": [
+    {
+      "keys": "f.f",
+      "name": "Quick open",
+      "type": "command",
+      "command": "workbench.action.quickOpen"
+    },
+    {
+      "keys": "c",
+      "name": "Co-Pilot",
+      "type": "bindings",
+      "icon": "copilot",
+      "bindings": [
+        {
+          "key": "c",
+          "name": "Open New Chat",
+          "icon": "comment",
+          "command": "workbench.action.chat.open"
+        },
+        {
+          "key": "i",
+          "name": "Interactive",
+          "icon": "comment-discussion",
+          "type": "bindings",
+          "bindings": [
+            {
+              "key": "e",
+              "name": "Explain",
+              "icon": "question",
+              "command": "github.copilot.interactiveEditor.explain"
+            },
+            {
+              "key": "f",
+              "name": "Fix",
+              "icon": "check",
+              "command": "github.copilot.interactiveEditor.fix"
+            },
+            {
+              "key": "t",
+              "name": "Generate Test",
+              "icon": "beaker",
+              "command": "github.copilot.interactiveEditor.generateTests"
+            },
+            {
+              "key": "d",
+              "name": "Generate Docs",
+              "icon": "book",
+              "command": "github.copilot.interactiveEditor.generateDocs"
+            }
+          ]
+        },
+        {
+          "key": "q",
+          "name": "Open New Quick Chat",
+          "icon": "comment-draft",
+          "command": "workbench.action.openQuickChat"
+        }
+      ]
+    }
+  ],
+  "editor.fontFamily": "'FiraCode Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
+  "editor.fontLigatures": true,
+  "editor.inlineSuggest.showToolbar": "always",
+  "window.menuBarVisibility": "toggle",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
