@@ -1,14 +1,15 @@
 {
   "editor.formatOnSave": true,
-  "window.zoomLevel": 1.8,
+  "window.zoomLevel": 1.6,
   "workbench.colorTheme": "Catppuccin Mocha",
+  "accessibility.dimUnfocused.enabled": true,
   "workbench.iconTheme": "catppuccin-mocha",
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
+  "workbench.panel.defaultLocation": "right",
   "catppuccin.italicKeywords": false,
   "workbench.startupEditor": "none",
-  "vim.easymotion": true,
   "editor.minimap.enabled": false,
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -22,8 +23,13 @@
   "apc.imports": [
     "file://${userHome}/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.4/dist/updateHandler.js"
   ],
-  "vim.useSystemClipboard": true,
+  "editor.cursorSurroundingLines": 8,
   "whichkey.delay": 300,
+  "vim.useSystemClipboard": true,
+  "vim.highlightedyank.enable": true,
+  "vim.easymotion": true,
+  // https://dev.to/ansonh/10-vs-code-vim-tricks-to-boost-your-productivity-1b0n#7-file-explorer-keybindings
+  "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
   "vim.easymotionKeys": "hklyuiopnmqwertzxcvbasdgjf",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
@@ -40,6 +46,13 @@
         }
       ]
     }
+    // paste over without overwriting register
+    // https://github.com/VSCodeVim/Vim/issues/3628#issuecomment-1337369581,
+    // {
+    //   "before": ["p"],
+    //   "commands": ["editor.action.clipboardPasteAction", "extension.vim_escape"]
+    // }
+    // END paste over without overwriting register
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
@@ -64,6 +77,17 @@
       "before": ["<"],
       "commands": ["editor.action.outdentLines"]
     }
+    // paste over without overwriting register
+    // https://github.com/VSCodeVim/Vim/issues/3628#issuecomment-1337369581
+    // {
+    //   "before": ["p"],
+    //   "commands": ["editor.action.clipboardPasteAction", "extension.vim_escape"]
+    // },
+    // {
+    //   "before": ["y"],
+    //   "commands": ["editor.action.clipboardCopyAction", "extension.vim_escape"]
+    // }
+    // END paste over without overwriting register
   ],
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -144,5 +168,15 @@
   "window.menuBarVisibility": "toggle",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.colorCustomizations": {
+    "Catppuccin Mocha": {
+      "activityBar.background": "#000C1D",
+      "activityBar.border": "#102a44",
+      "activityBar.activeBorder": "#ff0000",
+      "sideBar.background": "#001122",
+      "sideBar.foreground": "#8BADC1",
+      "focusBorder": "#c5e478"
+    }
   }
 }

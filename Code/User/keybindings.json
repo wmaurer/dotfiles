@@ -143,17 +143,9 @@
     "command": "file-browser.stepIn",
     "when": "inFileBrowser"
   },
-  // {
-  //   "key": "ctrl+f",
-  //   "command": "editor.action.inlineSuggest.commit",
-  //   // "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus"
-  //   "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !editor.hasSelection && !editorHoverFocused && !editorTabMovesFocus"
-  // },
-  // {
-  //   "key": "ctrl+f",
-  //   "command": "editor.action.inlineSuggest.commit",
-  //   "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible || cursorAtInlineEdit && inlineEditIsVisible && !editor.hasSelection && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible || inlineEditIsVisible && inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible || cursorAtInlineEdit && inlineEditIsVisible && inlineSuggestionVisible && !editor.hasSelection && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible"
-  // },
+  /*
+   * My customisations for copilot
+   */
   {
     "key": "ctrl+f",
     "command": "editor.action.inlineSuggest.commit",
@@ -178,11 +170,11 @@
     "command": "-editor.action.inlineSuggest.acceptNextWord",
     "when": "inlineSuggestionVisible && !editorReadonly"
   },
-  {
-    "key": "ctrl+j",
-    "command": "editor.action.inlineSuggest.acceptNextLine",
-    "when": "inlineSuggestionVisible && !editorReadonly"
-  },
+  // {
+  //   "key": "ctrl+j",
+  //   "command": "editor.action.inlineSuggest.acceptNextLine",
+  //   "when": "inlineSuggestionVisible && !editorReadonly"
+  // },
   {
     "key": "ctrl+enter",
     "command": "editor.action.inlineSuggest.trigger"
@@ -201,5 +193,124 @@
     "key": "ctrl+enter",
     "command": "-github.copilot.generate",
     "when": "editorTextFocus && github.copilot.activated && !commentEditorFocused && !inInteractiveInput && !interactiveEditorFocused"
+  },
+  {
+    "key": "ctrl+f",
+    "command": "-workbench.action.terminal.focusFind",
+    "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocusInAny && terminalHasBeenCreated || terminalFocusInAny && terminalProcessSupported"
+  },
+  /*
+   * End of my customisations for copilot
+   */
+  /*
+   * Customisations for quick window navigation: https://vspacecode.github.io/docs/bonus/#quick-window-navigation
+   * but with some customisations so that it works with my copilot customisations above
+   */
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft",
+    "when": "!inlineSuggestionVisible && !inQuickOpen && !suggestWidgetVisible && !parameterHintsVisible && !isInDiffEditor"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.navigateDown",
+    "when": "!inlineSuggestionVisible && !codeActionMenuVisible && !inQuickOpen && !suggestWidgetVisible && !parameterHintsVisible"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.navigateUp",
+    "when": "!inlineSuggestionVisible && !codeActionMenuVisible && !inQuickOpen && !suggestWidgetVisible && !parameterHintsVisible"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateRight",
+    "when": "!terminalFocus && !inlineSuggestionVisible && !codeActionMenuVisible && !inQuickOpen && !suggestWidgetVisible && !parameterHintsVisible && !isInDiffEditor"
+  },
+  // Quick Navigation for diff view
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.compareEditor.focusSecondarySide",
+    "when": "isInDiffEditor && !isInDiffLeftEditor"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft",
+    "when": "isInDiffEditor && isInDiffLeftEditor"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.compareEditor.focusPrimarySide",
+    "when": "isInDiffEditor && isInDiffLeftEditor"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateRight",
+    "when": "inlineSuggestionVisible && isInDiffEditor && !isInDiffLeftEditor"
+  },
+  /*
+   * End of customisations for quick window navigation
+   */
+  /*
+   * File explorer keyboard shortcuts
+   * https://dev.to/ansonh/10-vs-code-vim-tricks-to-boost-your-productivity-1b0n#7-file-explorer-keybindings
+   */
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "f",
+    "command": "explorer.newFolder",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "x",
+    "command": "filesExplorer.cut",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "y",
+    "command": "filesExplorer.copy",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+  },
+  {
+    "key": "p",
+    "command": "filesExplorer.paste",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+  },
+  /*
+   * END File explorer keyboard shortcuts
+   */
+  /*
+   * Scroll in show hover
+   */
+  {
+    "key": "h",
+    "command": "editor.action.scrollLeftHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "j",
+    "command": "editor.action.scrollDownHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "k",
+    "command": "editor.action.scrollUpHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "l",
+    "command": "editor.action.scrollRightHover",
+    "when": "editorHoverFocused"
   }
+  /*
+   * END Scroll in show hover
+   */
 ]
