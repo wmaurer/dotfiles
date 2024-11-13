@@ -1,4 +1,5 @@
 {
+  "window.dialogStyle": "custom",
   "editor.formatOnSave": true,
   "window.zoomLevel": 1.6,
   "workbench.colorTheme": "Catppuccin Mocha",
