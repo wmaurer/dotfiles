@@ -23,7 +23,7 @@ if status is-interactive
     abbr -a ghrc "gh repo clone"
     abbr -a dui lazydocker
     abbr -a nv "neovide &; disown"
-    abbr -a reset-nvim "rm -rf .local/share/nvim/ .local/state/nvim/ .cache/nvim/"
+    abbr -a lg lazygit
 
     # turn on direnv
     direnv hook fish | source
@@ -36,12 +36,16 @@ if status is-interactive
     # stop the locale problem with nix and vscode: https://www.reddit.com/r/NixOS/comments/oj4kmd/comment/h4zjrj5/
     # export LC_ALL=
 
-    set -x PATH $PATH ~/local/bin ~/.cargo/bin ~/.humanlog/bin
-
-    source "$HOME/.cargo/env.fish"
+    set -x PNPM_HOME "/home/wayne/.local/share/pnpm"
+    set -x PATH $PNPM_HOME $PATH ~/.cargo/bin ~/.humanlog/bin
 
     # if not test "$TERM_PROGRAM" = "tmux"
     #     exec tmux
     # end
+
+    # merge sessions when shell starts
+    if not set --query fish_private_mode
+        history merge
+    end
 end
 

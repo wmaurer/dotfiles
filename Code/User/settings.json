@@ -159,7 +159,9 @@
   "window.menuBarVisibility": "toggle",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.hideUnchangedRegions.enabled": true,
   // "workbench.colorCustomizations": {
   //   "Catppuccin Mocha": {
   //     "activityBar.background": "#000C1D",
@@ -169,5 +171,13 @@
   //     "sideBar.foreground": "#8BADC1",
   //     "focusBorder": "#c5e478"
   //   }
-  // }
+  // },
+  "terminal.integrated.profiles.linux": {
+    //...existing profiles...
+    "tmux-shell": {
+      "path": "tmux",
+      "args": ["new-session", "-A", "-s", "vscode:${workspaceFolder}"]
+    }
+  },
+  "terminal.integrated.defaultProfile.linux": "tmux-shell"
 }
