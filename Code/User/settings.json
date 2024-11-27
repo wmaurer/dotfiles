@@ -30,7 +30,7 @@
   "vim.highlightedyank.enable": true,
   "vim.easymotion": true,
   // https://dev.to/ansonh/10-vs-code-vim-tricks-to-boost-your-productivity-1b0n#7-file-explorer-keybindings
-  "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
+  // "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
   "vim.easymotionKeys": "hklyuiopnmqwertzxcvbasdgjf",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
@@ -179,5 +179,7 @@
       "args": ["new-session", "-A", "-s", "vscode:${workspaceFolder}"]
     }
   },
-  "terminal.integrated.defaultProfile.linux": "tmux-shell"
+  "terminal.integrated.defaultProfile.linux": "tmux-shell",
+  "editor.stickyScroll.enabled": false,
+  "workbench.tree.enableStickyScroll": false
 }
