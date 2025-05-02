@@ -161,7 +161,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "diffEditor.ignoreTrimWhitespace": true,
-  "diffEditor.hideUnchangedRegions.enabled": true,
   // "workbench.colorCustomizations": {
   //   "Catppuccin Mocha": {
   //     "activityBar.background": "#000C1D",
@@ -181,5 +180,17 @@
   },
   "terminal.integrated.defaultProfile.linux": "tmux-shell",
   "editor.stickyScroll.enabled": false,
-  "workbench.tree.enableStickyScroll": false
+  "workbench.tree.enableStickyScroll": false,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "chat.editing.alwaysSaveWithGeneratedChanges": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "eslint.format.enable": true,
+  "typescript.tsserver.log": "verbose"
 }

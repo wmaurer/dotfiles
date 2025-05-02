@@ -1,0 +1,33 @@
+{
+	"Effect.gen": {
+		"prefix": [
+			"efgen",
+		],
+		"body": [
+			"Effect.gen(function* () {",
+			"\t$0",
+			"})"
+		],
+		"description": "Effect.gen"
+	},
+	"Effect.fn": {
+		"prefix": [
+			"effn",
+		],
+		"body": [
+			"Effect.fn(($1) => Effect.gen(function* () {",
+			"\t$0",
+			"}))"
+		],
+		"description": "Effect.fn"
+	},
+	"Effect.log": {
+		"prefix": [
+			"eflogy",
+		],
+		"body": [
+			"yield* Effect.log($1)$0"
+		],
+		"description": "Effect.log"
+	}
+}
