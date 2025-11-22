@@ -1,24 +1,28 @@
 #!/usr/bin/expect -f
 
-set pass [string trim [exec op read "op://Employee/BEGASOFT VPN/password"]]
+set username [string trim [exec op read "op://Employee/work.begasoft.ch/username"]]
+set pass [string trim [exec op read "op://Employee/work.begasoft.ch/password"]]
 
 set timeout -1
-spawn nxcli connect bgsoffice.begasoft.ch
-expect -re {Input password of.*}
+spawn startct -m console
+
+expect -re {Username:.*}
+send -- "$username\r"
+
+expect -re {Password:.*}
 send -- "$pass\r"
 
-expect -re {.*Do you want to proceed\?.*}
-send -- "I\r"
+expect -re {.*Enter your choice.*}
+send -- "1\r"
 
-expect -re "Input the passcode:"
-set code [string trim [exec op item get "i6c7hyrlntonevevngbpzw622q" --otp]]
+set timeout -1
+expect -re "Enter 6 digit code or backup code:.*"
+set code [string trim [exec op item get "c4xe4eyln7muvirivqhrakpqme" --otp]]
 send -- "$code\r"
 
-expect -re {.*Authentication succeeded.*}
-expect eof
+set timeout -1
+expect -re {.*Enter your choice.*}
+send -- "1\r"
 
-send_user "\x1b\[3J\x1b\[H\x1b\[2J"
-flush stdout
-
-send_user "Connected successfully.\n"
+interact
 
