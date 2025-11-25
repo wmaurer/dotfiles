@@ -8,17 +8,17 @@ if status is-interactive
     # make nix with with fish
     # any-nix-shell fish --info-right | source
 
-    if test -f /usr/bin/nvim 
-        alias vi="/usr/bin/nvim"
-    else if test -f /usr/local/bin/nvim 
-        alias vi="/usr/local/bin/nvim"
-    end
+    # if test -f /usr/bin/nvim 
+    #     alias vi="/usr/bin/nvim"
+    # else if test -f /usr/local/bin/nvim 
+    #     alias vi="/usr/local/bin/nvim"
+    # end
 
     abbr -a j jump
     abbr -a x exit
     abbr -a cdu cd-gitroot
     abbr -a o xdg-open
-    abbr -a spot "alacritty -e ncspot &"
+    # abbr -a spot "alacritty -e ncspot &"
     abbr -a pnpmci "pnpm install --frozen-lockfile"
     abbr -a ghrc "gh repo clone"
     abbr -a dui lazydocker
@@ -47,5 +47,26 @@ if status is-interactive
     if not set --query fish_private_mode
         history merge
     end
+
+    fzf --fish | source
+    starship init fish | source
+
 end
 
+
+# Apps that should run with no padding
+set -g NO_PADDING_APPS vi vim nvim nano emacs helix lazygit
+
+function run_with_no_padding
+    set cmd $argv[1]
+    kitty @ set-spacing padding=0
+    command $cmd $argv[2..-1]
+    kitty @ set-spacing padding=default
+end
+
+# Create wrapper functions for each app
+for app in $NO_PADDING_APPS
+    function $app --inherit-variable app
+        run_with_no_padding $app $argv
+    end
+end
