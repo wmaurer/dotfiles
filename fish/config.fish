@@ -1,6 +1,11 @@
 if status is-interactive
+
     # turn off fish greetings
-    set -g fish_greeting
+    # set -g fish_greeting
+
+    function fish_greeting
+        fastfetch --logo none
+    end
 
     # turn on fish vi bindings
     fish_vi_key_bindings
@@ -36,7 +41,7 @@ if status is-interactive
     # stop the locale problem with nix and vscode: https://www.reddit.com/r/NixOS/comments/oj4kmd/comment/h4zjrj5/
     # export LC_ALL=
 
-    set -x PNPM_HOME "/home/wayne/.local/share/pnpm"
+    set -x PNPM_HOME "~/.local/share/pnpm"
     set -x PATH $PNPM_HOME $PATH ~/.cargo/bin ~/.humanlog/bin
 
     # if not test "$TERM_PROGRAM" = "tmux"
