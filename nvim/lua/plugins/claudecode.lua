@@ -20,6 +20,11 @@ return {
       },
       { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>",    desc = "Accept diff" },
       { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>",      desc = "Deny diff" },
+      {
+        "<leader>ap",
+        function() vim.cmd("edit /tmp/claude_prompt.md") end,
+        desc = "Open Claude prompt scratch file",
+      },
     },
   },
 }
