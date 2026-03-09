@@ -42,7 +42,7 @@ if status is-interactive
     # export LC_ALL=
 
     set -x PNPM_HOME "~/.local/share/pnpm"
-    set -x PATH $PNPM_HOME $PATH ~/.cargo/bin ~/.humanlog/bin
+    set -x PATH $PNPM_HOME $PATH ~/.cargo/bin ~/.humanlog/bin ~/.local/bin
 
     # if not test "$TERM_PROGRAM" = "tmux"
     #     exec tmux
