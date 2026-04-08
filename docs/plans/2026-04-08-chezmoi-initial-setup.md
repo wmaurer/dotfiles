@@ -218,7 +218,6 @@ if status is-interactive
     end
 
     fzf --fish | source
-    starship init fish | source
 
 end
 
@@ -269,7 +268,7 @@ Port the custom fish functions. These are static (no templating needed).
 - Create: `dot_config/fish/functions/ghrcd.fish`
 - Create: `dot_config/fish/functions/print-path.fish`
 
-Skip `fisher.fish` and `fish_prompt.fish` — fisher is a plugin manager (installed at runtime) and the prompt function is managed by the hydro/starship plugin.
+Skip `fisher.fish` (installed at runtime) and `fish_prompt.fish` (managed by Tide).
 
 **Step 1: Copy each function file**
 
@@ -298,6 +297,7 @@ Skip `fisher.fish` completion — fisher manages its own completions at runtime.
 
 ```
 jorgebucaran/fisher
+ilancosman/tide@v6
 jhillyerd/plugin-git
 oh-my-fish/plugin-node-binpath
 oh-my-fish/plugin-jump
