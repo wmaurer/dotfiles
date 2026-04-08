@@ -1,0 +1,9 @@
+README.md
+docs/**
+scripts/**
+LICENSE
+
+{{ if eq .profile "server" }}
+dot_config/systemd/user/agentsview.service
+run_onchange_after_enable-agentsview.sh
+{{ end }}
