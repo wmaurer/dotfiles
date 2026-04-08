@@ -64,6 +64,7 @@ dotfiles/                              <- chezmoi source dir (repo root)
 
 - `config.fish.tmpl` — vi key bindings, PATH, abbreviations (shared); work-specific blocks gated with `{{ if eq .profile "work" }}`; GUI-related config (kitty padding, fastfetch) gated with `{{ if ne .profile "server" }}`
 - `functions/` and `completions/` — carried over as static files from current config
+- Fisher plugin manager — installed automatically via a chezmoi run script; `fish_plugins` lists all plugins, `fisher update` installs them after `chezmoi apply`
 
 ## AgentsView
 

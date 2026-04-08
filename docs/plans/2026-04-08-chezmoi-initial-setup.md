@@ -292,7 +292,7 @@ Port the completions and `fish_plugins` file.
 - Create: `dot_config/fish/fish_plugins`
 - Create: `dot_config/fish/completions/` (copy all 8 completion files)
 
-Skip `fisher.fish` completion — it's managed by fisher itself.
+Skip `fisher.fish` completion — fisher manages its own completions at runtime.
 
 **Step 1: Create fish_plugins**
 
@@ -320,7 +320,52 @@ git commit -m "feat: add fish plugins list and completions"
 
 ---
 
-### Task 9: Bootstrap script
+### Task 9: Fisher install run script
+
+Create a chezmoi run script that installs fisher (if not present) and then runs `fisher update` to install all plugins from the `fish_plugins` file.
+
+**Files:**
+- Create: `run_onchange_after_install-fisher-plugins.sh.tmpl`
+
+**Step 1: Create the run script**
+
+This script uses `fish -c` to run fish commands from a bash script. It checks if fisher is installed, installs it if missing, then runs `fisher update` to sync plugins from `fish_plugins`. The `onchange` in the filename means it only re-runs when the script content changes — and since we embed the `fish_plugins` hash in it, it also re-runs when plugins change.
+
+```bash
+#!/bin/bash
+# chezmoi:template: true
+# fish_plugins hash: {{ include "dot_config/fish/fish_plugins" | sha256sum }}
+
+set -euo pipefail
+
+echo "Ensuring fisher and plugins are installed..."
+
+# Install fisher if not present
+if ! fish -c 'type -q fisher' 2>/dev/null; then
+    echo "Installing fisher..."
+    fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher'
+fi
+
+# Install/update all plugins from fish_plugins
+echo "Updating fisher plugins..."
+fish -c 'fisher update'
+
+echo "Fisher plugins up to date."
+```
+
+The `{{ include ... | sha256sum }}` comment is a chezmoi trick: when `fish_plugins` changes, the hash changes, the script content changes, and chezmoi re-runs it.
+
+**Step 2: Commit**
+
+```bash
+chmod +x run_onchange_after_install-fisher-plugins.sh.tmpl
+git add run_onchange_after_install-fisher-plugins.sh.tmpl
+git commit -m "feat: add run script to auto-install fisher and plugins"
+```
+
+---
+
+### Task 10: Bootstrap script
 
 Create the setup script for new machines.
 
@@ -364,7 +409,7 @@ git commit -m "feat: add bootstrap script for new machine setup"
 
 ---
 
-### Task 10: README and tool docs
+### Task 11: README and tool docs
 
 Write the main README and per-tool documentation.
 
@@ -394,7 +439,7 @@ git commit -m "docs: add README, agentsview and fish documentation"
 
 ---
 
-### Task 11: Verify full chezmoi apply
+### Task 12: Verify full chezmoi apply
 
 End-to-end verification that everything works.
 
