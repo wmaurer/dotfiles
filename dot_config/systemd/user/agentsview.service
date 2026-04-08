@@ -1,0 +1,13 @@
+[Unit]
+Description=AgentsView - AI agent session analytics dashboard
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/agentsview
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
