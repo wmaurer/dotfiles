@@ -1,0 +1,8 @@
+{{- $profile := promptStringOnce . "profile" "Machine profile (work/personal/server)" -}}
+{{- $fontSize := promptIntOnce . "font_size" "Font size (e.g. 12)" -}}
+{{- $scaleFactor := promptStringOnce . "scale_factor" "Display scale factor (e.g. 1.0)" -}}
+
+data:
+  profile: {{ $profile | quote }}
+  font_size: {{ $fontSize }}
+  scale_factor: {{ $scaleFactor | quote }}
