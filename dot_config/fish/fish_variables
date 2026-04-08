@@ -14,7 +14,7 @@ SETUVAR _fisher_oh_2D_my_2D_fish_2F_plugin_2D_node_2D_binpath_files:\x7e/\x2econ
 SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejhillyerd/plugin\x2dgit\x1eoh\x2dmy\x2dfish/plugin\x2dnode\x2dbinpath\x1enickeb96/puffer\x2dfish\x1eoh\x2dmy\x2dfish/plugin\x2djump\x1emollifier/fish\x2dcd\x2dgitroot\x1ejorgebucaran/nvm\x2efish\x1ecatppuccin/fish\x1eilancosman/tide\x40v6
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR _tide_left_items:pwd\x1egit\x1enewline\x1echaracter
-SETUVAR _tide_prompt_108190:\x1b\x5b38\x3b2\x3b48\x3b48\x3b48\x3b49m\x1b\x5b48\x3b2\x3b48\x3b48\x3b48m\x20\x40PWD\x40\x20\x1b\x5b38\x3b2\x3b48\x3b48\x3b48\x3b49m\ue0b4\x1e\x1b\x5b38\x3b2\x3b95\x3b215\x3b0m\u276f\x1e\x1b\x5b38\x3b2\x3b48\x3b48\x3b48\x3b49m\ue0b6\x1b\x5b38\x3b2\x3b135\x3b135\x3b95\x3b48\x3b2\x3b48\x3b48\x3b48m\x2011s\x20\x1b\x5b38\x3b2\x3b48\x3b48\x3b48\x3b49m
+SETUVAR _tide_prompt_108190:\x1b\x5b38\x3b2\x3b48\x3b48\x3b48\x3b49m\x1b\x5b48\x3b2\x3b48\x3b48\x3b48m\x20\x40PWD\x40\x20\x1b\x5b38\x3b2\x3b48\x3b48\x3b48\x3b49m\ue0b4\x1e\x1b\x5b38\x3b2\x3b95\x3b215\x3b0m\u276f
 SETUVAR _tide_right_items:status\x1ecmd_duration\x1econtext\x1ejobs\x1edirenv\x1ebun\x1enode\x1epython\x1erustc\x1ejava\x1ego
 SETUVAR nvm_default_version:v22
 SETUVAR tide_aws_bg_color:303030
@@ -120,8 +120,8 @@ SETUVAR tide_pulumi_bg_color:303030
 SETUVAR tide_pulumi_color:F7BF2A
 SETUVAR tide_pulumi_icon:\uf1b2
 SETUVAR tide_pwd_bg_color:303030
-SETUVAR tide_pwd_color_anchors:00AFFF
-SETUVAR tide_pwd_color_dirs:0087AF
+SETUVAR tide_pwd_color_anchors:94e2d5
+SETUVAR tide_pwd_color_dirs:94e2d5
 SETUVAR tide_pwd_color_truncated_dirs:8787AF
 SETUVAR tide_pwd_icon:\x1d
 SETUVAR tide_pwd_icon_home:\x1d
