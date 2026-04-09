@@ -1,0 +1,93 @@
+#!/bin/bash
+set -euo pipefail
+
+{{ if eq .profile "server" }}
+echo "Server profile: skipping desktop package installation."
+exit 0
+{{ end }}
+
+# --- Bootstrap yay (AUR helper) ---
+if ! command -v yay &>/dev/null; then
+    echo "Installing yay..."
+    sudo pacman -S --needed --noconfirm base-devel git
+    tmp_dir=$(mktemp -d)
+    git clone https://aur.archlinux.org/yay.git "$tmp_dir/yay"
+    (cd "$tmp_dir/yay" && makepkg -si --noconfirm)
+    rm -rf "$tmp_dir"
+fi
+
+# --- Core packages (all non-server profiles) ---
+core_packages=(
+    # shell & terminal
+    fish
+    kitty
+
+    # editors
+    neovim
+    neovide-bin
+
+    # git & dev tools
+    git
+    github-cli
+    lazygit
+    cmake
+    direnv
+    expect
+    jq
+    ripgrep
+    fzf
+    fastfetch
+
+    # containers
+    docker
+    docker-compose
+    lazydocker
+
+    # apps
+    1password
+    1password-cli
+    microsoft-edge-stable-bin
+)
+
+# --- Profile-specific packages ---
+{{ if eq .profile "work" }}
+work_packages=(
+)
+{{ end }}
+
+{{ if eq .profile "personal" }}
+personal_packages=(
+)
+{{ end }}
+
+# --- Install ---
+echo "Installing core packages..."
+yay -S --needed --noconfirm "${core_packages[@]}"
+
+{{ if eq .profile "work" }}
+if [ ${#work_packages[@]} -gt 0 ]; then
+    echo "Installing work packages..."
+    yay -S --needed --noconfirm "${work_packages[@]}"
+fi
+{{ end }}
+
+{{ if eq .profile "personal" }}
+if [ ${#personal_packages[@]} -gt 0 ]; then
+    echo "Installing personal packages..."
+    yay -S --needed --noconfirm "${personal_packages[@]}"
+fi
+{{ end }}
+
+# --- Docker post-install ---
+if ! groups "$USER" | grep -q '\bdocker\b'; then
+    echo "Adding $USER to docker group..."
+    sudo usermod -aG docker "$USER"
+    echo "NOTE: Log out and back in for docker group to take effect."
+fi
+
+if ! systemctl is-enabled docker.service &>/dev/null; then
+    echo "Enabling docker service..."
+    sudo systemctl enable --now docker.service
+fi
+
+echo "Package installation complete."
