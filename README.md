@@ -46,6 +46,9 @@ Profile differences:
 
 - **[Fish shell](docs/fish.md)** — vi bindings, abbreviations, direnv, fzf, Tide prompt via fisher
 - **[AgentsView](docs/agentsview.md)** — systemd user service for AI agent session analytics (desktop only)
+- **Direnv** — nvm integration via `use_nvm` for automatic Node version switching
+- **Kitty** — terminal with Monaspace font, transparency, powerline tabs, dank theme
+- **GitUI** — vim-style key bindings for the terminal git UI
 
 ## Common operations
 
