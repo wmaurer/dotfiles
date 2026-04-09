@@ -5,8 +5,8 @@ Chezmoi-managed dotfiles for Manjaro Linux. Chezmoi copies files to their destin
 ## Quickstart
 
 ```bash
-# 1. Install chezmoi
-yay -S chezmoi
+# 1. Install chezmoi (only manual prerequisite)
+sudo pacman -S chezmoi
 
 # 2. Clone this repo
 git clone <repo-url> ~/dotfiles
@@ -16,6 +16,8 @@ git clone <repo-url> ~/dotfiles
 ```
 
 The setup script runs `chezmoi init`, shows a diff of what will change, and asks for confirmation before applying. It will prompt for machine profile and display settings on first run.
+
+On first apply, chezmoi automatically bootstraps yay and installs all dev packages (fish, kitty, neovim, docker, etc.) before laying down config files.
 
 Manual alternative:
 
@@ -37,8 +39,8 @@ On first init, chezmoi prompts for a **profile** (`work`, `personal`, or `server
 
 Profile differences:
 
-- **work / personal** — Full desktop setup: fastfetch greeting, kitty no-padding wrappers, AgentsView service
-- **server** — Minimal: blank greeting, no kitty wrappers, no AgentsView
+- **work / personal** — Full desktop setup: auto-installs dev packages via yay, fastfetch greeting, kitty no-padding wrappers, AgentsView service, Docker (with user group + service)
+- **server** — Minimal: skips package installation, blank greeting, no kitty wrappers, no AgentsView
 
 ## Managed tools
 
